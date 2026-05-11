@@ -13,6 +13,9 @@ const supabase = createClient(
 
 app.use(express.static('public'))
 
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/public/index.html')
+})
 app.post('/upload', upload.single('photo'), async (req, res) => {
   const file = req.file
 
